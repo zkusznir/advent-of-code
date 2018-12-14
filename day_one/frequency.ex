@@ -4,7 +4,7 @@ defmodule Frequency do
       |> File.open!
       |> IO.stream(:line)
       |> Enum.map(&String.trim/1)
-      |> Integer.parse
+      |> Enum.map(&String.to_integer/1)
       |> Enum.sum
   end
 end
