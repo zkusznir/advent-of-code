@@ -14,7 +14,8 @@ class InputParser
     def parse_raw_boards_input(input)
       input.map do |raw_board|
         rows = raw_board.split("\n").map { |row| row.split(" ") }
-        Matrix[*rows]
+
+        { input: Matrix[*rows], is_winner: false }
       end
     end
   end
