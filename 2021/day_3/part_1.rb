@@ -1,13 +1,14 @@
 require "pry"
 
-numbers = File.read("data.txt").split("\n")
+numbers               = File.read("data.txt").split("\n")
+half_of_numbers_count = numbers.size / 2
 
 gamma_digits = 
   numbers
   .map { |number| number.split("") }
   .transpose
   .map { |position_digits| position_digits.count { |digit| digit == "0" } }
-  .map { |count| count > 500 ? "0" : "1" }
+  .map { |count| count > half_of_numbers_count ? "0" : "1" }
 
 epsilon_digits = gamma_digits.map { |digit| digit == "0" ? "1" : "0" }
 

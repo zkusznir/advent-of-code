@@ -42,6 +42,6 @@ class Bingo
 end
 
 input  = File.read("data.txt").split("\n\n")
-winner = Bingo.first_winner(*InputParser.call(input))
+winner = Bingo.first_winner(*InputParser.call(input, :part_2))
 
 puts winner[:board].to_a.flatten.compact.map(&:to_i).sum * winner[:last_draw].to_i
